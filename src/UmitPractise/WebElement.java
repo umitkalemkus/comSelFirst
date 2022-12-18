@@ -33,14 +33,23 @@ public class WebElement {
         adress.sendKeys("91 Terrakce Road");
 
 
-        org.openqa.selenium.WebElement parmenatAdress =driver.findElement(By.id("permanentAddress"));
+      org.openqa.selenium.WebElement permanentAdress =driver.findElement(By.id("permanentAddress"));
+      permanentAdress.click();
+      permanentAdress.sendKeys("200 high street");
 
-        parmenatAdress.click();
-        parmenatAdress.sendKeys("200  High streeet");
 
 
-        org.openqa.selenium.WebElement Button =driver.findElement(By.id("submit"));
-        parmenatAdress.click();
+      org.openqa.selenium.WebElement submit =driver.findElement(By.cssSelector("button.btn"));
+      submit.click();
+
+
+
+      org.openqa.selenium.WebElement nameText =driver.findElement(By.xpath("//*[@id='name']"));
+      String name =nameText.getText();
+      System.out.println(name);
+
+
+
 
 
 
