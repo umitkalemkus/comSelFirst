@@ -40,6 +40,10 @@ public class RadioButton {
         System.out.println(Selected.getText());
 
 
+        WebElement noRadioButton = driver.findElement(By.id("noRadio"));
+        System.out.println(noRadioButton.isEnabled());
+
+
     }
 
     }
