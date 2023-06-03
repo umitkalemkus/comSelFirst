@@ -21,12 +21,9 @@ public class C01_ManageWindowsCommands {
 
 
         System.setProperty("webdriver.chrome.driver","resources/driver/chromedriver.exe");
-
         WebDriver driver =new ChromeDriver();
         driver.get("https://www.google.com");
-
         driver.manage().window().maximize();
-
         Point point = driver.manage().window().getPosition();
 
         int posX = point.getX();

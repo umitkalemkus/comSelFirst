@@ -2,6 +2,7 @@ package Day01_Selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationsComments {
@@ -19,9 +20,9 @@ public class NavigationsComments {
 
         System.setProperty("webdriver.chrome.driver","resources/driver/chromedriver.exe");
 
-
-        WebDriver driver = new FirefoxDriver();
-
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co);
         driver.navigate().to("https://www.clarusway.com");
         driver.navigate().to("https://www.amazon.com");
         driver.navigate().back();

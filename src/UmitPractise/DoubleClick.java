@@ -27,6 +27,21 @@ public class DoubleClick {
         String message1 =DoubleClickMsg.getText();
         System.out.println(message1);
 
+        WebElement RightClickMe = driver.findElement(By.id("rightClickBtn"));
+        action.contextClick(RightClickMe).perform();
+
+        WebElement RightClickMsg = driver.findElement(By.id("rightClickMessage"));
+        String message2 = RightClickMsg.getText();
+        System.out.println(message2);
+
+
+
+
+
+
+
+
+
 
 
 

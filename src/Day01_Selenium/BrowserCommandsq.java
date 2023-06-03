@@ -1,7 +1,9 @@
 package Day01_Selenium;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BrowserCommandsq {
 
@@ -15,22 +17,19 @@ public class BrowserCommandsq {
 */
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","resources/driver/chromedriver.exe");
-
-
-        WebDriver driver = new ChromeDriver();
-
+        System.setProperty("webdriver.chrome.driver","resources\\driver\\chromedriver.exe");
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co); // Webdriver interfacedir.
         driver.get("https://www.google.com");
-
+        driver.findElement(By.xpath("//div[text()='Accept all']")).click();
         String pageTitle = driver.getTitle();
-
         String currentUrl = driver.getCurrentUrl();
-
         System.out.println("pageTitle = " + pageTitle);
         System.out.println("currentUrl = " + currentUrl);
 
 
-        driver.quit();
+      //  driver.quit();
 
 
     }
