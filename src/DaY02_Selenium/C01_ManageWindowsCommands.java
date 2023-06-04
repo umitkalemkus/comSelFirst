@@ -1,9 +1,11 @@
 package DaY02_Selenium;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class C01_ManageWindowsCommands {
     //        Invoke Chrome Browser
@@ -21,17 +23,19 @@ public class C01_ManageWindowsCommands {
 
 
         System.setProperty("webdriver.chrome.driver","resources/driver/chromedriver.exe");
-        WebDriver driver =new ChromeDriver();
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co);
         driver.get("https://www.google.com");
+        driver.findElement(By.xpath("//div[text()='Accept all']")).click();
         driver.manage().window().maximize();
         Point point = driver.manage().window().getPosition();
-
         int posX = point.getX();
         int PosY = point.getY();
-
-
         System.out.println("Sayfamizin x koordinati =  "+ posX);
         System.out.println("Sayfamizin y koordinati =  "+ PosY);
+
+
 
 
         Dimension dimension =driver.manage().window().getSize();
