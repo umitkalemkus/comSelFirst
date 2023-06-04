@@ -1,11 +1,9 @@
 package DaY02_Selenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 public class C01_ManageWindowsCommands {
     //        Invoke Chrome Browser
@@ -34,16 +32,18 @@ public class C01_ManageWindowsCommands {
         int PosY = point.getY();
         System.out.println("Sayfamizin x koordinati =  "+ posX);
         System.out.println("Sayfamizin y koordinati =  "+ PosY);
-
-
-
-
         Dimension dimension =driver.manage().window().getSize();
 
        int h = driver.manage().window().getSize().getHeight();
        int w = driver.manage().window().getSize().getWidth();
+       int k =driver.manage().window().getSize().hashCode();
+        WebElement searchbox = driver.findElement(By.name("q"));
+        searchbox.sendKeys("umitkalemkus");
+
+
         System.out.println("Browser imizin yuksekligi ="+ h);
         System.out.println("Browser imizin  genisligi  ="+ w);
+        System.out.println("Browser imizin  hashcode  ="+ k);
 
         driver.manage().window().minimize();
 
