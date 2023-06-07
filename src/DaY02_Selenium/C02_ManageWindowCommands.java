@@ -4,6 +4,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class C02_ManageWindowCommands {
 
@@ -17,8 +18,9 @@ public class C02_ManageWindowCommands {
 
 
         System.setProperty("webdriver.chrome.driver","resources/driver/chromedriver.exe");
-
-        WebDriver driver =new ChromeDriver();
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co);
         driver.get("https://www.amazon.com");
 
           //  browser pozisyon ve boyutunu yazdirdik
@@ -29,14 +31,10 @@ public class C02_ManageWindowCommands {
         Thread.sleep(3000);
         //browser imizin pozisyonunu (190 ,70) olarak set ettik.
 
-        driver.manage().window().setPosition(new Point(190,70));
+        driver.manage().window().setPosition(new Point(190,80));
 
 
-        //browser imizin boyutunu (300 ,500) olarak set ettik.
-        driver.manage().window().setSize(new Dimension(800,1000));
-
-
-        // browser imizin boyutunu  dogruluyoruz.
+        // browser imizin boyutunu (300 ,500) olarak set ettik.
 
         int height = driver.manage().window().getSize().getHeight();
         int width =driver.manage().window().getSize().getWidth();
