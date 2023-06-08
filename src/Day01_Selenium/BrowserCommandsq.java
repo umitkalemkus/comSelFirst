@@ -18,6 +18,8 @@ public class BrowserCommandsq {
 */
 
     public static void main(String[] args) {
+
+
         System.setProperty("webdriver.chrome.driver","resources\\driver\\chromedriver.exe");
         ChromeOptions co = new ChromeOptions();
         co.addArguments("--remote-allow-origins=*");
